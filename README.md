@@ -13,8 +13,8 @@ FVBNet is a food image classification model based on EfficientNetV2B0, trained o
 - [Training](#training)
 - [Evaluation](#evaluation)
 - [Inference Example](#inference-example)
-- [Dependencies](#dependencies)
 - [Model Download](#model-download)
+- [Dependencies](#dependencies)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -45,17 +45,27 @@ git clone https://github.com/your-username/your-repo.git
 cd your-repo
 ```
 
-Install required packages:
+Install all required dependencies:
 
 ```bash
-pip install tensorflow pillow numpy huggingface_hub
+pip install -r requirements.txt
 ```
 
 ---
 
 ## ⚙️ Usage
 
-Load the model and run prediction on an image:
+Use the included script to run predictions:
+
+```bash
+python predict.py --image path/to/image.jpg
+```
+
+Make sure the image is a JPG or PNG with food content.
+
+---
+
+## 🧪 Inference Example (Manual in Python)
 
 ```python
 from huggingface_hub import hf_hub_download
@@ -74,12 +84,10 @@ def preprocess_image(path):
     return np.expand_dims(img_array, axis=0)
 
 # Predict
-img_path = 'path/to/image.jpg'
-input_image = preprocess_image(img_path)
+input_image = preprocess_image("path/to/image.jpg")
 prediction = model.predict(input_image)
-
 predicted_class = prediction.argmax()
-print(f"Predicted class: {predicted_class}")
+print(f"Predicted class index: {predicted_class}")
 ```
 
 ---
@@ -103,38 +111,36 @@ print(f"Predicted class: {predicted_class}")
 
 ---
 
-## 🧪 Inference Example
-
-```bash
-python predict.py --image path/to/image.jpg
-```
-
-> Ensure the model is either downloaded or accessible through the Hugging Face integration.
-
----
-
-## 📦 Dependencies
-
-- Python 3.8+
-- TensorFlow (latest)
-- Pillow
-- NumPy
-- huggingface_hub
-
----
-
 ## 📥 Model Download
 
-The trained model is publicly available on Hugging Face:
+The trained model is hosted on Hugging Face:
 
 🔗 [FVBNet on Hugging Face](https://huggingface.co/jcm-developer/FVBNet)
 
-You can also programmatically download it using:
+To download and load the model:
 
 ```python
 from huggingface_hub import hf_hub_download
 
 model_path = hf_hub_download(repo_id="jcm-developer/FVBNet", filename="deep_food_enhanced_model.keras")
+```
+
+---
+
+## 📦 Dependencies
+
+The project uses the following libraries:
+
+- Python 3.8+
+- TensorFlow
+- Pillow
+- NumPy
+- huggingface_hub
+
+You can install all dependencies with:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ---
