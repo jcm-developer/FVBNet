@@ -41,7 +41,7 @@ This project presents a food classification model for `224x224` RGB images, base
 Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/jcm-developer/FVBNet.git
 cd your-repo
 ```
 
@@ -74,7 +74,7 @@ from PIL import Image
 import numpy as np
 
 # Download model from Hugging Face
-model_path = hf_hub_download(repo_id="jcm-developer/FVBNet", filename="deep_food_enhanced_model.keras")
+model_path = hf_hub_download(repo_id="jcm-developer/FVBNet", filename="FVBNet.keras")
 model = load_model(model_path)
 
 # Preprocess image
@@ -122,7 +122,7 @@ To download and load the model:
 ```python
 from huggingface_hub import hf_hub_download
 
-model_path = hf_hub_download(repo_id="jcm-developer/FVBNet", filename="deep_food_enhanced_model.keras")
+model_path = hf_hub_download(repo_id="jcm-developer/FVBNet", filename="FVBNet.keras")
 ```
 
 ---
